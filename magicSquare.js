@@ -1,42 +1,47 @@
 function checkMagicSquare(n, matrix) {
     let target = (n * (n * n + 1)) / 2;
-    
-    // Calculate the sum of the first row
-    let rowSum = matrix[0].reduce((sum, num) => sum + num, 0);
-    
-    // Check row sums
-    for (let i = 1; i < n; i++) {
-      let sum = matrix[i].reduce((sum, num) => sum + num, 0);
-      if (sum !== rowSum) {
-        return "No";
-      }
-    }
-  
-    // Check column sums
-    for (let i = 0; i < n; i++) {
-      let sum = 0;
-      for (let j = 0; j < n; j++) {
-        sum += matrix[j][i];
-      }
-      if (sum !== rowSum) {
-        return "No";
-      }
-    }
-  
-    // Check diagonal sums
     let sumd1 = 0;
     let sumd2 = 0;
+  
+    for (let i = 0; i < n; i++) {
+      let rowSum = 0;
+      for (let j = 0; j < n; j++) {
+        rowSum += matrix[i][j];
+      }
+      if (rowSum !== target) {
+        return "No";
+      }
+    }
+  
+    for (let i = 0; i < n; i++) {
+      let colSum = 0;
+      for (let j = 0; j < n; j++) {
+        colSum += matrix[j][i];
+      }
+      if (colSum !== target) {
+        return "No";
+      }
+    }
+  
     for (let i = 0; i < n; i++) {
       sumd1 += matrix[i][i];
-      sumd2 += matrix[i][n - 1 - i];
     }
-    
-    if (sumd1 !== rowSum || sumd2 !== rowSum) {
+  
+    if (sumd1 !== target) {
+      return "No";
+    }
+  
+    for (let i = 0; i < n; i++) {
+      sumd2 += matrix[n - 1 - i][i];
+    }
+  
+    if (sumd2 !== target) {
       return "No";
     }
   
     return "Yes";
   }
+  
   
   
   const n = 3;
