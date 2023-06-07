@@ -29,6 +29,8 @@ function checkMagicSquare(n, matrix) {
   
     if (sumd1 !== target) {
       return "No";
+
+      
     }
   
     for (let i = 0; i < n; i++) {
