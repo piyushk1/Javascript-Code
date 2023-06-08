@@ -30,7 +30,7 @@ function checkMagicSquare(n, matrix) {
     if (sumd1 !== target) {
       return "No";
 
-      
+
     }
   
     for (let i = 0; i < n; i++) {
@@ -44,8 +44,7 @@ function checkMagicSquare(n, matrix) {
     return "Yes";
   }
   
-  
-  
+
   const n = 3;
   const matrix = [
     [4, 9, 2],
